@@ -1,12 +1,8 @@
 import { connect } from 'react-redux';
 import ACTION_TYPES from '../../actions/actionTypes';
 
-
 function Counter(props) {
-  const { count, dispatch } = props;
-
-  const handleIncrement = () => dispatch({ type: ACTION_TYPES.INCREMENT });
-  const handleDecrement = () => dispatch({ type: ACTION_TYPES.DECREMENT });
+  const { count, handleDecrement, handleIncrement } = props;
 
   return (
     <div>
@@ -24,8 +20,16 @@ function mapStateToProps(state) {
   // return state;
 }
 
-// const withStateInProps = connect(mapStateToProps);
+function mapDispatchToProps(dispatch) {
+  return {
+    handleIncrement: () => dispatch({ type: ACTION_TYPES.INCREMENT }),
+    handleDecrement: () => dispatch({ type: ACTION_TYPES.DECREMENT }),
+    dispatch,
+  };
+}
+
+// const withStateInProps = connect(mapStateToProps, mapDispatchToProps);
 // const AppWithState = withStateInProps(Counter);
 // export default AppWithState;
 
-export default connect(mapStateToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
