@@ -30,9 +30,9 @@ function Counter(props) {
 
 function mapStateToProps(state) {
   return {
-    count: state.count,
-    step: state.step,
-    lang: state.lang,
+    count: state.counter.count,
+    step: state.counter.step,
+    lang: state.lang.lang,
   };
   // return state;
 }

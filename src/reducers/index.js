@@ -1,38 +1,26 @@
-import ACTION_TYPES from '../actions/actionTypes';
-import CONSTANTS from '../constants';
+import { combineReducers } from 'redux';
+import counterReducer from './counterReducer';
+import langReducer from './langReducer';
 
-const initialState = {
-  count: 0,
-  step: 1,
-  lang: CONSTANTS.LANGUAGES.ua,
-  theme: 'dark',
-  user: {
-    id: 213547805,
-    name: 'Test Test',
-  },
-};
+const rootReducer = combineReducers({
+  counter: counterReducer,
+  lang: langReducer,
+});
 
-function reducer(state = initialState, action) {
-  switch (action.type) {
-    case ACTION_TYPES.INCREMENT: {
-      const newState = {
-        ...state,
-        count: state.count + state.step,
-      };
+export default rootReducer;
 
-      return newState;
-    }
-    case ACTION_TYPES.DECREMENT:
-      return { ...state, count: state.count - state.step };
+// const oldGlobalState = {
+//   count: 0,
+//   step: 1,
+//   lang: 'ua_UA',
+// };
 
-    case ACTION_TYPES.SET_STEP:
-      return { ...state, step: action.newStep };
-
-    case ACTION_TYPES.CHANGE_LANGUAGE:
-      return { ...state, lang: action.lang };
-    default:
-      return state;
-  }
-}
-
-export default reducer;
+// const newGlobalState = {
+//   counter: {
+//     count: 0,
+//     step: 1,
+//   },
+//   lang: {
+//     lang: 'ua_UA',
+//   },
+// };

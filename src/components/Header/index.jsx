@@ -36,7 +36,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    lang: state.lang,
+    lang: state.lang.lang,
   };
 };
 
