@@ -1,0 +1,14 @@
+{
+  "en_US": {
+    "greetingText": "Hello,",
+    "guestName": "Guest",
+    "changeLangLabel": "Change Language",
+    "optionText": "English"
+  },
+  "ua_UA": {
+    "greetingText": "Вітаємо,",
+    "guestName": "Гість",
+    "changeLangLabel": "Змінити мову",
+    "optionText": "Українська"
+  }
+}

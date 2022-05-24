@@ -1,9 +1,10 @@
 import ACTION_TYPES from '../actions/actionTypes';
+import CONSTANTS from '../constants';
 
 const initialState = {
   count: 0,
   step: 1,
-  lang: 'en',
+  lang: CONSTANTS.LANGUAGES.ua,
   theme: 'dark',
   user: {
     id: 213547805,
@@ -24,7 +25,11 @@ function reducer(state = initialState, action) {
     case ACTION_TYPES.DECREMENT:
       return { ...state, count: state.count - state.step };
 
-    case ACTION_TYPES.SET_STEP : return {...state, step : action.newStep }
+    case ACTION_TYPES.SET_STEP:
+      return { ...state, step: action.newStep };
+
+    case ACTION_TYPES.CHANGE_LANGUAGE:
+      return { ...state, lang: action.lang };
     default:
       return state;
   }

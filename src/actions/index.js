@@ -8,4 +8,9 @@ export const increment = () => {
 
 export const decrement = () => ({ type: ACTION_TYPES.DECREMENT });
 
-export const setStep = (newStep) => ({type: ACTION_TYPES.SET_STEP, newStep})
+export const setStep = (newStep) => ({ type: ACTION_TYPES.SET_STEP, newStep });
+
+export const changeLang = (lang) => ({
+  type: ACTION_TYPES.CHANGE_LANGUAGE,
+  lang,
+});

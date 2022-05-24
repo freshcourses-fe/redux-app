@@ -1,22 +1,29 @@
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions';
+import translations from './translations.json';
 
 function Counter(props) {
-  const { count, step, changeStep, handleDecrement, handleIncrement } = props;
+  const { count, step, lang, changeStep, handleDecrement, handleIncrement } =
+    props;
 
   const handleChange = ({ target: { value } }) => changeStep(Number(value));
 
+  const currentTranslation = translations[lang];
+  const { countText, plusBtn, minusBtn } = currentTranslation;
+
   return (
     <div>
-      <p>Count is: {count}</p>
+      <p>
+        {countText}: {count}
+      </p>
       <input
         type="number"
         placeholder="step"
         value={step}
         onChange={handleChange}
       />
-      <button onClick={handleDecrement}>Minus</button>
-      <button onClick={handleIncrement}>Plus</button>
+      <button onClick={handleDecrement}>{minusBtn}</button>
+      <button onClick={handleIncrement}>{plusBtn}</button>
     </div>
   );
 }
@@ -25,6 +32,7 @@ function mapStateToProps(state) {
   return {
     count: state.count,
     step: state.step,
+    lang: state.lang,
   };
   // return state;
 }
