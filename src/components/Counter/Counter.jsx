@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ACTION_TYPES from '../../actions/actionTypes';
+import * as actionCreators from '../../actions';
 
 function Counter(props) {
   const { count, step, changeStep, handleDecrement, handleIncrement } = props;
@@ -31,9 +31,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleIncrement: () => dispatch({ type: ACTION_TYPES.INCREMENT }),
-    handleDecrement: () => dispatch({ type: ACTION_TYPES.DECREMENT }),
-    changeStep: (newStep) => dispatch({ type: ACTION_TYPES.SET_STEP, newStep }),
+    handleIncrement: () => dispatch(actionCreators.increment()),
+    handleDecrement: () => dispatch(actionCreators.decrement()),
+    changeStep: (newStep) => dispatch(actionCreators.setStep(newStep)),
   };
 }
 
