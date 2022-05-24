@@ -2,6 +2,7 @@ import ACTION_TYPES from '../actions/actionTypes';
 
 const initialState = {
   count: 0,
+  step: 1,
   lang: 'en',
   theme: 'dark',
   user: {
@@ -15,14 +16,15 @@ function reducer(state = initialState, action) {
     case ACTION_TYPES.INCREMENT: {
       const newState = {
         ...state,
-        count: state.count + 1,
+        count: state.count + state.step,
       };
 
       return newState;
     }
     case ACTION_TYPES.DECREMENT:
-      return { ...state, count: state.count - 1 };
+      return { ...state, count: state.count - state.step };
 
+    case ACTION_TYPES.SET_STEP : return {...state, step : action.newStep }
     default:
       return state;
   }
