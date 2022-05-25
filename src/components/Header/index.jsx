@@ -72,6 +72,7 @@ const mapStateToProps = (state) => {
   return {
     lang: state.lang.lang,
     theme: state.theme.theme,
+    user: state.user.user,
   };
 };
 

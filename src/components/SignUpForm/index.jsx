@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
+import * as actionCreators from './../../actions';
 
 import styles from './SignUpForm.module.scss';
 
@@ -12,9 +14,10 @@ const initialValues = {
   userRole: 'creator',
 };
 
-const SignUpForm = (props) => {
+const SignUpForm = ({createUserRequest}) => {
   const submitHandler = (values, utils) => {
     // alert(JSON.stringify(values, null , 2))
+    createUserRequest(values);
   };
 
   return (
@@ -39,4 +42,8 @@ const SignUpForm = (props) => {
   );
 };
 
-export default SignUpForm;
+const mapDispatchToProps = (dispatch) => ({
+  createUserRequest: (values) => dispatch(actionCreators.createUserRequest(values)),
+});
+
+export default connect(null, mapDispatchToProps)(SignUpForm);
