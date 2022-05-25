@@ -1,16 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 import CONSTANTS from '../../constants';
 import translations from './translations.json';
 import * as actionCreators from './../../actions';
 import { Link } from 'react-router-dom';
 
-import styles from './Header.module.scss';
+import classes from './Header.module.scss';
 const Header = (props) => {
-  const { user, lang, changeLang } = props;
-
+  const { user, lang, theme, changeLang, changeTheme } = props;
   const { greetingText, guestName, changeLangLabel, signUp, signIn } =
     translations[lang];
+
+  const changeThemeHandler = () =>
+    changeTheme(
+      theme === CONSTANTS.THEMES.white
+        ? CONSTANTS.THEMES.black
+        : CONSTANTS.THEMES.white
+    );
 
   const handleSelect = ({ target: { value } }) => changeLang(value);
 
@@ -21,7 +28,7 @@ const Header = (props) => {
   ));
 
   const controlButtons = (
-    <div className={styles.btnContainer}>
+    <div className={classes.btnContainer}>
       {user ? (
         <button>Logout</button>
       ) : (
@@ -33,8 +40,13 @@ const Header = (props) => {
     </div>
   );
 
+  const styles = cx(classes.header, {
+    [classes.white]: theme === CONSTANTS.THEMES.white,
+    [classes.black]: theme === CONSTANTS.THEMES.black,
+  });
+
   return (
-    <header className={styles.header}>
+    <header className={styles}>
       <Link to="/">
         <h1>My Site</h1>
       </Link>
@@ -50,6 +62,7 @@ const Header = (props) => {
           </select>
         </label>
         {controlButtons}
+        <button onClick={changeThemeHandler}>Сменить тему</button>
       </div>
     </header>
   );
@@ -58,12 +71,14 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
   return {
     lang: state.lang.lang,
+    theme: state.theme.theme,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     changeLang: (lang) => dispatch(actionCreators.changeLang(lang)),
+    changeTheme: (theme) => dispatch(actionCreators.changeTheme(theme)),
   };
 };
 
