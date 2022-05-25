@@ -3,12 +3,18 @@
     "greetingText": "Hello,",
     "guestName": "Guest",
     "changeLangLabel": "Change Language",
-    "optionText": "English"
+    "optionText": "English",
+    "signUp": "Signup",
+    "logout": "Logout",
+    "signIn": "Sign in"
   },
   "ua_UA": {
     "greetingText": "Вітаємо,",
     "guestName": "Гість",
     "changeLangLabel": "Змінити мову",
-    "optionText": "Українська"
+    "optionText": "Українська",
+    "signUp": "Зарееструватися",
+    "logout": "Вийти",
+    "signIn": "Увійти"
   }
 }

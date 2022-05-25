@@ -1,13 +1,16 @@
 import React from 'react';
-import Counter from './components/Counter/Counter';
-import Header from './components/Header';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import SignUpPage from './pages/SignUpPage';
 
 const App = () => {
   return (
-    <>
-      <Header />
-      <Counter />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/signup" component={SignUpPage} />
+      </Switch>
+    </Router>
   );
 };
 

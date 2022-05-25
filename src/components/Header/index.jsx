@@ -3,11 +3,14 @@ import { connect } from 'react-redux';
 import CONSTANTS from '../../constants';
 import translations from './translations.json';
 import * as actionCreators from './../../actions';
+import { Link } from 'react-router-dom';
 
+import styles from './Header.module.scss';
 const Header = (props) => {
   const { user, lang, changeLang } = props;
 
-  const { greetingText, guestName, changeLangLabel } = translations[lang];
+  const { greetingText, guestName, changeLangLabel, signUp, signIn } =
+    translations[lang];
 
   const handleSelect = ({ target: { value } }) => changeLang(value);
 
@@ -17,19 +20,37 @@ const Header = (props) => {
     </option>
   ));
 
+  const controlButtons = (
+    <div className={styles.btnContainer}>
+      {user ? (
+        <button>Logout</button>
+      ) : (
+        <>
+          <Link to="/signup">{signUp}</Link>
+          <Link to="/signin">{signIn}</Link>
+        </>
+      )}
+    </div>
+  );
+
   return (
-    <header>
-      <h1>My Site</h1>
+    <header className={styles.header}>
+      <Link to="/">
+        <h1>My Site</h1>
+      </Link>
       <h2>
-        {greetingText} {user ? `${user.FirstName} ${user.lastName}` : guestName}
+        {greetingText} {user ? `${user.firstName} ${user.lastName}` : guestName}
       </h2>
 
-      <label>
-        {changeLangLabel}:
-        <select value={lang} onChange={handleSelect}>
-          {options}
-        </select>
-      </label>
+      <div>
+        <label>
+          {changeLangLabel}:
+          <select value={lang} onChange={handleSelect}>
+            {options}
+          </select>
+        </label>
+        {controlButtons}
+      </div>
     </header>
   );
 };
