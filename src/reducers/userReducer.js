@@ -13,7 +13,7 @@ export default function userReducer(state = initialState, action) {
     case ACTION_TYPES.CREATE_USER_SUCCESS:
       return {
         ...state,
-        user: action.value,
+        user: action.values,
         isLoading: false,
       };
 
