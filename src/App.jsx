@@ -1,7 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import OnlyPublicRoute from './components/OnlyPublicRoute';
+import PrivateRoute from './components/PrivateRoute';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage ';
+import ProfilePage from './pages/ProfilePage';
 import SignUpPage from './pages/SignUpPage';
 
 const App = () => {
@@ -9,8 +12,9 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/signup" component={SignUpPage} />
+        <OnlyPublicRoute exact path="/login" component={LoginPage} />
+        <OnlyPublicRoute exact path="/signup" component={SignUpPage} />
+        <PrivateRoute path='/profile' component={ProfilePage} />
       </Switch>
     </Router>
   );
