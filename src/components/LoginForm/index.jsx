@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, Form, Formik } from 'formik';
 import { connect } from 'react-redux';
-import * as actionCreators from '../../actions';
+import * as userActionCreators from '../../actions/userActionCreators';
 
 const initialValues = {
   email: '',
@@ -33,7 +33,7 @@ const mStP = (state) => ({
   error: state.user.error,
 });
 const mDtP = (dispatch) => ({
-  loginRequest: (values) => dispatch(actionCreators.loginRequest(values)),
+  loginRequest: (values) => dispatch(userActionCreators.loginRequest(values)),
 });
 
 export default connect(mStP, mDtP)(LoginForm);

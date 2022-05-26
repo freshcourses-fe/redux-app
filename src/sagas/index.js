@@ -1,7 +1,7 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import ACTION_TYPES from '../actions/actionTypes';
 import * as API from './../api';
-import * as actionCreators from '../actions';
+import * as userActionCreators from '../actions/userActionCreators';
 
 // worker saga
 function* createUserSaga(action) {
@@ -12,9 +12,9 @@ function* createUserSaga(action) {
       data: { data: user },
     } = response;
 
-    yield put(actionCreators.createUserSuccess(user));
+    yield put(userActionCreators.createUserSuccess(user));
   } catch (error) {
-    yield put(actionCreators.createUserError(error.response.data.error));
+    yield put(userActionCreators.createUserError(error.response.data.error));
   }
 }
 
@@ -24,9 +24,9 @@ function* loginSaga(action) {
       data: { data: user },
     } = yield API.loginUser(action.payload.values);
 
-    yield put(actionCreators.loginSuccess(user));
+    yield put(userActionCreators.loginSuccess(user));
   } catch (error) {
-    yield put(actionCreators.loginError(error.response.data.error));
+    yield put(userActionCreators.loginError(error.response.data.error));
   }
 }
 

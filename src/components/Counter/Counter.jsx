@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import * as actionCreators from '../../actions';
+import * as counterActionCreators from '../../actions/counterActionCreators';
 import translations from './translations.json';
 
 function Counter(props) {
@@ -39,9 +39,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleIncrement: () => dispatch(actionCreators.increment()),
-    handleDecrement: () => dispatch(actionCreators.decrement()),
-    changeStep: (newStep) => dispatch(actionCreators.setStep(newStep)),
+    handleIncrement: () => dispatch(counterActionCreators.increment()),
+    handleDecrement: () => dispatch(counterActionCreators.decrement()),
+    changeStep: (newStep) => dispatch(counterActionCreators.setStep(newStep)),
   };
 }
 
