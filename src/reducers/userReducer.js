@@ -9,18 +9,21 @@ const initialState = {
 export default function userReducer(state = initialState, action) {
   switch (action.type) {
     case ACTION_TYPES.CREATE_USER_REQUEST:
-      return { ...state, isLoading: true };
+    case ACTION_TYPES.LOGIN_REQUEST:
+      return { ...initialState };
     case ACTION_TYPES.CREATE_USER_SUCCESS:
+    case ACTION_TYPES.LOGIN_SUCCESS:
       return {
         ...state,
-        user: action.values,
+        user: action.payload.values,
         isLoading: false,
       };
 
     case ACTION_TYPES.CREATE_USER_ERROR:
+    case ACTION_TYPES.LOGIN_ERROR:
       return {
         ...state,
-        error: action.error,
+        error: action.payload.error,
         isLoading: false,
       };
     default:

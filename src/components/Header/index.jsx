@@ -34,7 +34,7 @@ const Header = (props) => {
       ) : (
         <>
           <Link to="/signup">{signUp}</Link>
-          <Link to="/signin">{signIn}</Link>
+          <Link to="/login">{signIn}</Link>
         </>
       )}
     </div>

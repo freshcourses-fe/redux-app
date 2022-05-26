@@ -20,18 +20,32 @@ export const changeTheme = (theme) => ({
   theme,
 });
 
-
 export const createUserRequest = (values) => ({
   type: ACTION_TYPES.CREATE_USER_REQUEST,
-  values,
+  payload: {values},
 });
 
 export const createUserSuccess = (values) => ({
   type: ACTION_TYPES.CREATE_USER_SUCCESS,
-  values,
+  payload: { values },
 });
 
 export const createUserError = (error) => ({
   type: ACTION_TYPES.CREATE_USER_ERROR,
-  error,
+  payload: { error },
+});
+
+export const loginRequest = (values) => ({
+  type: ACTION_TYPES.LOGIN_REQUEST,
+  payload: { values },
+});
+
+export const loginSuccess = (values) => ({
+  type: ACTION_TYPES.LOGIN_SUCCESS,
+  payload: { values },
+});
+
+export const loginError = (error) => ({
+  type: ACTION_TYPES.LOGIN_ERROR,
+  payload: { error },
 });
