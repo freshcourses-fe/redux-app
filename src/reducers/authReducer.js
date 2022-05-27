@@ -6,7 +6,7 @@ const initialState = {
   error: null,
 };
 
-export default function userReducer(state = initialState, action) {
+export default function authReducer(state = initialState, action) {
   switch (action.type) {
     case ACTION_TYPES.CREATE_USER_REQUEST:
     case ACTION_TYPES.LOGIN_REQUEST:

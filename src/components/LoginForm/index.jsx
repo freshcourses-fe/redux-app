@@ -29,8 +29,8 @@ const LoginForm = ({ isLoading, error, loginRequest }) => {
 };
 
 const mStP = (state) => ({
-  isLoading: state.user.isLoading,
-  error: state.user.error,
+  isLoading: state.auth.isLoading,
+  error: state.auth.error,
 });
 const mDtP = (dispatch) => ({
   loginRequest: (values) => dispatch(userActionCreators.loginRequest(values)),

@@ -10,6 +10,6 @@ const PrivateRoute = ({ user, ...rest }) => {
   return <Route {...rest} />;
 };
 
-const mStP = (state) => ({ user: state.user.user });
+const mStP = (state) => ({ user: state.auth.user });
 
 export default connect(mStP)(PrivateRoute);
