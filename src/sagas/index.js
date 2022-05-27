@@ -2,6 +2,7 @@ import { takeEvery, put } from 'redux-saga/effects';
 import ACTION_TYPES from '../actions/actionTypes';
 import * as API from './../api';
 import * as userActionCreators from '../actions/userActionCreators';
+import { workingError, workingSuccess } from '../actions';
 
 // worker saga
 function* createUserSaga(action) {
@@ -30,7 +31,20 @@ function* loginSaga(action) {
   }
 }
 
+function* workingUserSaga(action) {
+  try {
+    const {
+      data: { data: workers },
+    } = yield API.workingUser(action.payload);
+
+    yield put(workingSuccess(workers));
+  } catch (error) {
+    yield put(workingError(error.response.data.error));
+  }
+}
+
 export default function* rootSaga() {
   yield takeEvery(ACTION_TYPES.CREATE_USER_REQUEST, createUserSaga);
   yield takeEvery(ACTION_TYPES.LOGIN_REQUEST, loginSaga);
+  yield takeEvery(ACTION_TYPES.WORKINING_USER_REQUEST, workingUserSaga);
 }

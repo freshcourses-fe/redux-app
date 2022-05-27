@@ -9,3 +9,17 @@ export const changeTheme = (theme) => ({
   type: ACTION_TYPES.CHANGE_THEME,
   theme,
 });
+
+export const workerRequest = (options) => ({
+  type: ACTION_TYPES.WORKINING_USER_REQUEST,
+  payload: options
+});
+
+export const workingSuccess = (workers) => ({
+  type: ACTION_TYPES.WORKINING_USER_SUCCESS,
+  payload: { values: workers },
+});
+export const workingError = (error) => ({
+  type: ACTION_TYPES.WORKINING_USER_ERROR,
+  payload: { error },
+});
