@@ -1,15 +1,15 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-const OnlyPublicRoute = ({ user, ...rest }) => {
+const OnlyPublicRoute = (props) => {
+  const user = useSelector((state) => state.auth.user);
+
   if (user) {
     return <Redirect to="/" />;
   }
 
-  return <Route {...rest} />;
+  return <Route {...props} />;
 };
 
-const mStP = (state) => ({ user: state.auth.user });
-
-export default connect(mStP)(OnlyPublicRoute);
+export default OnlyPublicRoute;

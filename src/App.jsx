@@ -20,9 +20,9 @@ const App = () => {
           <PrivateRoute path="/profile" component={ProfilePage} />
         </Switch>
       </Router>
+      <Counter />
 
       <UserList />
-      <Counter />
     </>
   );
 };

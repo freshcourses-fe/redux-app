@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { workerRequest } from '../../redux/actions';
 
-const UserList = ({ workers, isLoading, error, requestWorkers }) => {
+const UserList = (props) => {
   const [page, setPage] = useState(1);
+  const { workers, isLoading, error } = useSelector((state) => state.worker);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     requestWorkers({ page });
   }, [page]);
-
+  
+  const requestWorkers = (options) => dispatch(workerRequest(options));
+  
   return (
     <div>
       {isLoading && <div>LOADING </div>}
@@ -23,8 +27,8 @@ const UserList = ({ workers, isLoading, error, requestWorkers }) => {
   );
 };
 
-const mStP = (state) => state.worker;
-const mDtP = (dispatch) => ({
-  requestWorkers: (options) => dispatch(workerRequest(options)),
-});
-export default connect(mStP, mDtP)(UserList);
+// const mStP = (state) => state.worker;
+// const mDtP = (dispatch) => ({
+//   requestWorkers: (options) => dispatch(workerRequest(options)),
+// });
+export default UserList;
