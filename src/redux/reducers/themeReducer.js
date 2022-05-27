@@ -1,5 +1,5 @@
 import ACTION_TYPES from '../actions/actionTypes';
-import CONSTANTS from '../constants';
+import CONSTANTS from '../../constants';
 
 const initialState = {
   theme: CONSTANTS.THEMES.black,

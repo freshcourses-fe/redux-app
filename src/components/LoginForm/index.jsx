@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, Form, Formik } from 'formik';
 import { connect } from 'react-redux';
-import * as userActionCreators from '../../actions/userActionCreators';
+import * as userActionCreators from './../../redux/actions/userActionCreators';
 
 const initialValues = {
   email: '',

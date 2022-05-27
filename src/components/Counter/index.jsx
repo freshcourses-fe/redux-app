@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import * as counterActionCreators from '../../actions/counterActionCreators';
+import * as counterActionCreators from './../../redux/actions/counterActionCreators';
 import translations from './translations.json';
 
 function Counter(props) {

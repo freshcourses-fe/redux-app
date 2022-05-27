@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import LoginPage from './pages/LoginPage ';
 import ProfilePage from './pages/ProfilePage';
 import SignUpPage from './pages/SignUpPage';
+import Counter from './components/Counter';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
       </Router>
 
       <UserList />
+      <Counter />
     </>
   );
 };

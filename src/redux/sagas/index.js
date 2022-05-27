@@ -1,6 +1,6 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import ACTION_TYPES from '../actions/actionTypes';
-import * as API from './../api';
+import * as API from './../../api';
 import * as userActionCreators from '../actions/userActionCreators';
 import { workingError, workingSuccess } from '../actions';
 

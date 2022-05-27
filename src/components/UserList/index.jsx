@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { workerRequest } from '../../actions';
+import { workerRequest } from '../../redux/actions';
 
 const UserList = ({ workers, isLoading, error, requestWorkers }) => {
   const [page, setPage] = useState(1);
-  
+
   useEffect(() => {
     requestWorkers({ page });
   }, [page]);

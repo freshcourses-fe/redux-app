@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Formik, Form, Field } from 'formik';
-import * as userActionCreators from './../../actions/userActionCreators';
+import * as userActionCreators from './../../redux/actions/userActionCreators';
 
 import styles from './SignUpForm.module.scss';
 

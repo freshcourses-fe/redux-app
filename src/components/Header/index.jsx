@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import cx from 'classnames';
 import CONSTANTS from '../../constants';
 import translations from './translations.json';
-import * as actionCreators from './../../actions';
+import * as actionCreators from './../../redux/actions/';
 import { Link } from 'react-router-dom';
 
 import classes from './Header.module.scss';
