@@ -13,7 +13,7 @@ export default function workerReducer(state = initialState, action) {
     case ACTION_TYPES.WORKINING_USER_SUCCESS:
       return {
         ...state,
-        workers:[...state.workers, ...action.payload.values],
+        workers: [...state.workers, ...action.payload.workers],
         isLoading: false,
       };
     case ACTION_TYPES.WORKINING_USER_ERROR:

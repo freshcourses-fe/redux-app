@@ -8,7 +8,7 @@ const initialState = {
 function themeReducer(state = initialState, action) {
   switch (action.type) {
     case ACTION_TYPES.CHANGE_THEME:
-      return { ...state, theme: action.theme };
+      return { ...state, theme: action.payload.theme };
     default:
       return state;
   }

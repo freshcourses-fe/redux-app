@@ -18,8 +18,13 @@ function counterReducer(state = initialState, action) {
     case ACTION_TYPES.DECREMENT:
       return { ...state, count: state.count - state.step };
 
-    case ACTION_TYPES.SET_STEP:
-      return { ...state, step: action.newStep };
+    case ACTION_TYPES.SET_STEP: {
+      const {
+        payload: { newStep },
+      } = action;
+
+      return { ...state, step: newStep };
+    }
     default:
       return state;
   }

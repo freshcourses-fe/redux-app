@@ -2,7 +2,7 @@ import ACTION_TYPES from './actionTypes';
 
 export const createUserRequest = (values) => ({
   type: ACTION_TYPES.CREATE_USER_REQUEST,
-  payload: {values},
+  payload: { values },
 });
 
 export const createUserSuccess = (values) => ({
@@ -20,9 +20,9 @@ export const loginRequest = (values) => ({
   payload: { values },
 });
 
-export const loginSuccess = (values) => ({
+export const loginSuccess = (user) => ({
   type: ACTION_TYPES.LOGIN_SUCCESS,
-  payload: { values },
+  payload: { user },
 });
 
 export const loginError = (error) => ({
